@@ -12,7 +12,7 @@ WIdist <- function(imageTable, ## Exported data table from Wildlife Insights, be
                    nStudents=NA, ## If you don't provide table with student names, you can specify the number of students / buckets to divide images across or how many times to assign imagesPerStudent.
                    imagesPerStudent=NA, ## If set, this will limit the number of images assigned per student to your provided number, rather than dividing all unverified images between students.
                    byDeployment=FALSE, ## Should assignments be created per-deployment rather than purely date/time within a project?  This can be helpful as a student will not swap as often (or at all) between cameras/backgrounds, and won't need to worry about timestamps, but they must be trained to filter by deployment in addition to dates.
-                   #bridgeDeployments=TRUE, ## Sould assignments bridge deployments?  I.e. can a student be assigned images in multiple deployments and have 2 lines in the assignment table?
+                   #bridgeDeployments=TRUE, ## Should assignments bridge deployments?  I.e. can a student be assigned images in multiple deployments and have 2 lines in the assignment table?
                    blankVal=1.0 ## This can be set between 1.0, which treats blanks as any other photo, and 0, which means that blanks, while still in each assignment, don't count towards the total photos assigned. Any other number between 0 and 1 (i.e a percentage) will count each blank as a "fraction" of a photo when counting towards the total assigned.
 ) {
   
