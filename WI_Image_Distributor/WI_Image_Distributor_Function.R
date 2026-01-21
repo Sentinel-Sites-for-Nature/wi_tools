@@ -3,6 +3,7 @@ library(dplyr)
 library(readr)
 library(tidyr)
 library(lubridate)
+library(stringr)
 
 ## Function to create image assignments for Wildlife Insights projects
 WIdist <- function(imageTable, ## Exported data table from Wildlife Insights, be sure to include ALL data (especially images in the "identify" tab)
@@ -66,7 +67,7 @@ WIdist <- function(imageTable, ## Exported data table from Wildlife Insights, be
   else { ## Only gets to here if there isn't a useable student name vector or table 
     if(is.null(studentTable)) {
       if(is.na(nStudents)) {stop("No table or character vector of student names present, please provide a number of students (nStudents) to apply image distribution function across") } # Fatal error if neither student names nor a number of students / buckets to divide into is present
-      else{studentList <- data.frame(student=paste0("Assignment ",as.character(1:nStudents)),assignmentNumber=1:nStudents)}
+      else{studentList <- data.frame(student=paste0("Assignment ",str_pad(1:nStudents,width=nchar(as.integer(nStudents)),pad="0")),assignmentNumber=1:nStudents)}
     }
     else {stop("Unrecognized format supplied for student names, please supply a canvas gradebook (as a tibble or data frame) or a character vector of students.") } # Fatal error if unrecognized format for student names
   }
